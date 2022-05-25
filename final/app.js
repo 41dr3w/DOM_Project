@@ -9,7 +9,7 @@ const p2 = {
   display: document.querySelector("#p2Display"),
 };
 
-const resetButton = document.querySelector("#reset");
+const resetButton = document.querySelector("select is-rounded");
 const winningScoreSelect = document.querySelector("#playto");
 let winningScore = 3;
 let isGameOver = false;

@@ -1,67 +1,67 @@
 
-var p1Display = document.getElementById("p1Display")
-var p2Display = document.getElementById("p2Display")
+const p1 = {
+    Display : document.getElementById("p1Display"),
+    btnOne : document.querySelector("#p1Button"),
+    value : 0,
+};
 
-const btnOne = document.querySelector("#p1Button")
-const btnTwo = document.querySelector("#p2Button")
-const btnRst = document.querySelector("#reset")
-const selected = document.querySelector("#playto")
+const p2 = {
+    Display : document.getElementById("p2Display"),
+    btnTwo : document.querySelector("#p2Button"),
+    value : 0,
+};
 
-var endpoint = 3
-var valueP1 = 0
-var valueP2 = 0
+const btnRst = document.querySelector("#reset"), 
+selected = document.querySelector("#playto");
+selected.addEventListener("change",() => endPoint())  
+var endpoint = 3;
 
-selected.addEventListener("change", endPoint)
+p1.btnOne.addEventListener("click", () => { begining=false;
+p1.value++;
+display()}); 
 
-btnOne.addEventListener("click", function() {
-  valueP1++
-  display(valueP1,valueP2)
-}); 
+p2.btnTwo.addEventListener("click", () => { begining=false;
+p2.value++; 
+display()}); 
 
-btnTwo.addEventListener("click", function() {
-  valueP2++
-  display(valueP1,valueP2)
-}); 
+btnRst.addEventListener("click", reSet());
 
-btnRst.addEventListener("click", reSet)
-
-function endPoint(selected)  {
-    return parseInt(selected.value)
+function endPoint(selected){
+    return parseInt(selected.value);
 }
 
-function display(valueP1,valueP2){
+function display(){
 
     endpoint = endPoint(selected)
 
-    p1Display.innerText = valueP1
-    p2Display.innerText = valueP2
+    p1.Display.innerText = p1.value
+    p2.Display.innerText = p2.value
 
-    if(valueP1===endpoint && valueP1 > valueP2){
-        p1Display.style.color="green"
-        p2Display.style.color="red"
+    if(p1.value===endpoint && p1.value > p2.value){
+        p1.Display.style.color="green"
+        p2.Display.style.color="red"
         fiNish();
-    }    
-    else if(valueP2===endpoint && valueP2 > valueP1){
-        p1Display.style.color="red"
-        p2Display.style.color="green"
+    }
+
+    else if(p2.value===endpoint && p2.value > p1.value){
+        p1.Display.style.color="red"
+        p2.Display.style.color="green"
         fiNish();
     }
 }
 
 function fiNish() {
-    console.log("termino!")
-    btnOne.button.disabled = true
-    btnTwo.button.disabled = true
-
+     p1.btnOne.disabled = true;
+     p2.btnTwo.disabled = true;
 } 
 
-function reSet() {
-    console.log("esto funciona")
-    valueP1=0
-    valueP2=0
-    p1Display.innerText = valueP1
-    p2Display.innerText = valueP2
-    p1Display.style.color="black"
-    p2Display.style.color="black"
-    selected.value = 3
- }
+function reSet(){
+        p1.value=0
+        p2.value=0
+        p1.Display.innerText = p1.value
+        p2.Display.innerText = p2.value
+        p1.Display.style.color="black"
+        p2.Display.style.color="black"
+        p1.btnOne.disabled = false,
+        p2.btnTwo.disabled = false }
+ 

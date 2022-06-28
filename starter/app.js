@@ -24,8 +24,6 @@ p2.btnTwo.addEventListener("click", () => { begining=false;
 p2.value++; 
 display()}); 
 
-btnRst.addEventListener("click", reSet());
-
 function endPoint(selected){
     return parseInt(selected.value);
 }
@@ -34,18 +32,18 @@ function display(){
 
     endpoint = endPoint(selected)
 
-    p1.Display.innerText = p1.value
-    p2.Display.innerText = p2.value
+    p1.Display.innerText = p1.value;
+    p2.Display.innerText = p2.value;
 
     if(p1.value===endpoint && p1.value > p2.value){
-        p1.Display.style.color="green"
-        p2.Display.style.color="red"
+        p1.Display.style.color="green";
+        p2.Display.style.color="red";
         fiNish();
     }
 
     else if(p2.value===endpoint && p2.value > p1.value){
-        p1.Display.style.color="red"
-        p2.Display.style.color="green"
+        p1.Display.style.color="red";
+        p2.Display.style.color="green";
         fiNish();
     }
 }
@@ -55,13 +53,17 @@ function fiNish() {
      p2.btnTwo.disabled = true;
 } 
 
-function reSet(){
-        p1.value=0
-        p2.value=0
-        p1.Display.innerText = p1.value
-        p2.Display.innerText = p2.value
-        p1.Display.style.color="black"
-        p2.Display.style.color="black"
-        p1.btnOne.disabled = false,
-        p2.btnTwo.disabled = false }
+btnRst.addEventListener("click", reSet);
+
+
+function reSet() {
+        p1.value=0;
+        p2.value=0;
+        p1.Display.innerText = p1.value;
+        p2.Display.innerText = p2.value;
+        p1.Display.style.color="black";
+        p2.Display.style.color="black";
+        p1.btnOne.disabled = false;
+        p2.btnTwo.disabled = false;
+    }
  
